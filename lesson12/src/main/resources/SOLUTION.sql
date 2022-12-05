@@ -1,0 +1,4 @@
+DELETE FROM STUDENT WHERE ID IN (SELECT DISTINCT STUDENT_ID FROM MARK inner join STUDENT S on MARK.STUDENT_ID = S.ID inner join SUBJECT S2 on S2.ID = MARK.SUBJECT_ID WHERE GRADE>=4);
+delete from STUDENT where ID in (select STUDENT_ID from MARK group by STUDENT_ID having min(MARK) < 4);
+delete from PAYMENTTYPE where NAME = 'DAILY';
+delete from MARK where MARK < 7;
